@@ -1,0 +1,31 @@
+//Andrei Gabriel 323CB
+
+Tema1 PA - DP - Greedy - DP
+
+1) Walsh :
+
+Rezolvata cu parcurgerea Z. Se numara de cate ori ne aflam in cadranul 4 (de atatea ori s-a negat 0).
+Complexitate: O(log n)
+
+2) Statistics :
+
+Rezolvare Gready, pe fiecare caracter am incercat sa il fac dominant intr-un string nou, concatenand celelalte stringuri date.
+Pentru caracterul c, am sortat vectorul dupa 'ratia lui c' (lungimea stringului - 2 * frecventa lui c) derivata de la formula
+prin care se verifica daca c este dominant: len/2 <= fr[c] -> len - 2*fr[c] <= 0.
+Dupa sortare am incercat sa concatenez la stringurile din array-ul sortat pana cand noul string nu ar mai avea c element dominant.
+Pentru reducerea timpului am lucrat cu frecventa caracterelor din string, ci nu cu stringul.
+
+Complexitate: m = lungimea string, n = numarul de stringuri O(n*m) (citirea) + O(26*(2*n+n*logn)) (calcularea rezultatului) = O(n*(m + logn))
+
+3) Prinel :
+
+Pentru fiecare numar am generat numarul minim de pasi, generand toate solutiile din intervalul [1, numar curent].
+
+Dupa regula s[n] = s[n-1] + d
+s[n-1] = d*c
+s[n] = d*c + d ; s[n] = d*(c+1) => d este divizor pentru s[n] si pentru s[n-1]
+
+s[n-1] = s[n] - d
+
+Obs : Steps[1] = 0
+      Steps[input] = 1 + Minim(Steps[d1], Steps[d2],..,Steps[dn])  di - divizorii lui input
