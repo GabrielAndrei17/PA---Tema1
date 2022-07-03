@@ -9,7 +9,5 @@ run-p2:
 	java Statistics
 run-p3:
 	java Prinel
-run-p4:
-	java Crypto
 clean:
 	rm *.class
